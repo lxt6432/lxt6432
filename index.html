@@ -1,0 +1,372 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<title>个人简历</title>
+		<style>
+			*{
+				margin: 0 auto;
+			}
+			#down h1,h2,h3{
+				font-family: "微软雅黑";
+				color: white;
+				text-shadow:10px 5px 10px #000000;
+			}
+			h1{
+				font-size: 30px;
+			}
+			h2{
+			font-size: 20px;}
+			h3{
+				font-size: 30px;
+			}
+			*{
+				margin: 0 auto;
+			}
+			header{
+				height: 688px;
+				background-color: #00CACA;
+				padding:20px 20px 0px 50px;
+			}
+			nav{
+				height: 40px;
+				display: flex;
+				justify-content: center;
+				padding: 20px;
+			}
+			nav a{
+				list-style: none;
+				text-decoration: none;
+				color: white;
+				line-height: 40px;
+			}
+			a:hover{
+				color: #BFE9DC;
+			}
+			#down{
+				height:450px;
+				padding:20px;
+				position:relative;
+			}
+			#down img{
+				outline:solid 9px white;
+				position: absolute;
+				right: 10%;
+				top:90px ;
+				transform:rotateZ(15deg);
+			}
+			#down h1{
+				position: absolute;
+				top: 90px;left: 50%;
+				animation: titl 0.5s ease-in;
+				-webkit-animation: titl .5s ease-in;
+			}
+			#down h2{
+				position: absolute;
+				top: 200px;left: 40%;
+				animation: titl 0.5s ease-in;
+				-webkit-animation: titl .5s ease-in;
+			}
+			#down h3{
+				position: absolute;
+				top: 300px;left: 70%;
+				animation: titl 0.5s ease-in;
+				-webkit-animation: titl .5s ease-in;
+				-moz-animation: titl .5s ease-in;
+				-ms-animation: titl .5s ease-in;
+			}
+			
+			@keyframes titl{
+				from{top: 20px;left: -4000px;}
+				to{top: 90px;left: 500px;}
+			}
+			@-webkit-keyframes titl{
+				from{top: 20px;left: -4000px;}
+				to{top: 90px;left: 500px;}
+			}
+			@-moz-keyframes titl{
+				from{top: 20px;left: -4000px;}
+				to{top: 90px;left: 500px;}
+			}
+			@-ms-keyframes titl{
+				from{top: 20px;left: -4000px;}
+				to{top: 90px;left: 500px;}
+			}
+			article{
+				width:100%;
+				height: 600px;
+				display: flex;
+				padding-top: 120px;
+				margin: auto;
+				background-color: #EBF5F7;
+			}
+			article h1{
+				line-height: 200px;
+				color: blue;
+			}
+			.pro{
+				display: inline-block;
+				height: 30px;
+				width: 80%;
+				border: solid 1px #00CACA;
+				border-radius: 10px;
+			}
+			.bar{
+				display: inline-block;
+				height: 30px;
+				width: 0%;
+				background-color: red;
+				border-radius: 10px;
+				text-align: end;
+			}
+			#sk_l{
+				display: inline-block;
+				width: 60%;
+				
+				
+			}
+			#sk_r{
+				display: inline-block;
+				width: 200px;
+				height: 200px;
+			}
+			label{
+				height: 30px;
+				margin-bottom: 20px;
+				display: flex;
+			}
+			.skill{
+				width: 90px;
+				height: 40px;
+				background-color: blue;
+				display: inline-block;
+				margin-top:5px;
+				color: white;
+			}
+			.lt{
+				border-top-left-radius: 90px;
+				text-align:center;
+				padding-top:50px 
+			} 
+			.lb{
+				border-bottom-left-radius: 90px;
+				height: 90px;
+				line-height: 70px;
+				text-align:center;
+			}
+			.rt{
+				border-top-right-radius: 90px;
+				padding-top:50px;
+				text-align:center; 
+			}
+			.rb{
+				border-bottom-right-radius: 90px;
+				line-height: 70px;
+				height: 90px;
+				text-align:center;
+			}
+			.works{
+				position: relative;
+				width: 50%;
+				height: 640px;
+				overflow: hidden;
+			}
+			.wd{
+				width: 100%;
+				height: 640px;
+				position: absolute;
+				text-align: center;
+				left: 0px;
+				top: 0px;
+				background-color: rgba(0,0,0,0);
+				line-height: 150px;
+				text-decoration: none;
+			}
+			.wd p{
+				color: #000000;
+			}
+			.works:hover img{
+				zoom: 1.6;
+			}
+			.works img{
+				width: 100%;
+				height: 640px;
+				position: absolute;
+			}
+			.wd:hover{
+				background-color: rgba(166,206,185,0.9);
+			}
+			.works:hover{
+				width: 800px;
+			}
+			.times{
+				padding-top: 80px;
+				padding-left: 50px;
+				background-color: #007892;
+			}
+			.time{
+				width: 700px;
+				position: relative;
+				margin-bottom: 160px;
+			}
+			.time p{
+			    position: absolute;
+			    border: solid 3px #000000;
+				width: 150px;			
+				height: 150px;
+				line-height:150px ;
+				border-radius: 150px;
+			}
+			.time div{
+				padding-top: 75px;
+				width: 200px;
+				text-align: center;
+				height: 50px;
+			}
+			.title{
+				text-align: center;
+				background-color: #0085A1;
+				width: 30%;
+				line-height: 600px;
+			}
+			.fooder{
+				background-color: #0085A1;
+				width: 30%;
+				padding-top: 40px;
+				padding-left: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<a>李想天个人简历</a>
+				<a href="#down">关于我</a>
+				<a href="">技能掌握</a>
+				<a href="">作品展示</a>
+				<a href="">联系我</a>
+			</nav>
+			<div id="down">
+				<h1>我叫李想天</h1>
+				   <h2>一个热爱前端的工程师</h2>
+				   <h2>敢于挑战</h2>
+				   <h2>适应性强</h2>
+				   <h2>团队精神</h2>
+				   <h2>爱学习</h2>
+				   <h2>与时俱进</h2>
+				   <h2>爱代码</h2>
+				<h3>我为自己代言!</h3>
+				<img src="img/me.jpg" />
+			</div>
+		</header>
+		<article style="height: 400px;">
+			<h1>技能掌握</h1>
+		 <div id="sk_l">
+				<label>html css:
+				    <div class="pro">
+					   <div class="bar"></div>
+				    </div>
+				</label>
+		
+			<label>html5 css3:<div class="pro"><div class="bar"></div></div></label>
+			<label>javascript:<div class="pro"><div class="bar"></div></div></label>
+			<label>jquery:<div class="pro"><div class="bar"></div></div>	</label>
+		 </div>
+		 <div id="sk_r">
+		 	<div class="skill lt">Vue.js</div>
+		 	<div class="skill rt">node.js</div>
+		 	<div class="skill lb">bootstarp</div>
+		 	<div class="skill rb">Canvas</div>
+		 </div>
+		</article>
+		<article>
+			<div class="works">
+				<img src="img/01.jpg"/>
+				<a href="shop.html" class="wd"></a>
+			</div>
+			<div class="works">
+				<img src="img/02.jpg" />
+				<a href="douyu.html" class="wd"></a></div>
+			<div class="works">
+				<img src="img/03.jpg" />
+				<a href="kehu.html" class="wd"></a></div>
+			<div class="works">
+				<img src="img/04.jpg" />
+				<a href="https://erlvzi.github.io/" class="wd"></a></div>
+				<div class="works">
+				<img src="img/04.jpg" />
+				<a href="bootstarp/index.html" class="wd"></a></div>
+		</article>
+		<article>
+			<div class="title">
+				<h3>
+					个人经历
+				</h3>
+			</div>
+			<div class="times">
+				<div class="time">
+				  <p>2016-9月——至今</p>
+				  <div>
+					负责学校官网的开发和维护。日常的信息更新。
+				  </div>
+			    </div>
+			    <div class="time">
+			      <p>2017-9月——至今</p>
+			      <div>
+			      	运用hexo+github开发自己的博客，目前正在完善自己的主题。
+			      </div>
+			    </div>
+			</div>
+			<div class="fooder">
+				<img src="img/qq.jpg"/>
+				<img src="img/vx.jpg" />
+			</div>
+		</article>
+		<script>
+			ah2=document.getElementsByTagName("h2");
+			aw=document.getElementsByClassName("works");
+			
+			
+			function skill(abars,num){
+				$(abars).animate({width:num},1000)
+				$(abars).text(num)
+			};
+			
+			for(i=0;i<ah2.length;i++){
+				ah2[i].style.top=Math.random()*450+"px";
+				ah2[i].style.left=Math.random()*400+"px"
+			}
+			
+			function enter(wd,color,miao){
+				$(wd).mouseenter(function(){
+					$(wd).html(miao)
+					$(wd+":parent").css("z-index","222").siblings().css("z-index","1")
+				    $(wd).css("background-color","rgba"+color)
+			   });
+			    $(wd).mouseleave(function(){
+			    	$(wd).css("background-color","")
+			    	$(wd).text("")
+			    })
+			}
+			enter(".wd:eq(0)","(166,206,185,0.9)","<h3>商城购物车结算系统</h3><p>订单的选择和删除，金额的计算</p>")
+			enter(".wd:eq(1)","(166,206,185,0.8)","<h3>移动端页面</h3><p>兼容安卓，ios</p>")
+			enter(".wd:eq(2)","(166,206,185,0.8)","<h3>客户信息管理页面</h3><p>客户信息的录入和删除</p>")
+			enter(".wd:eq(3)","(166,206,185,0.8)","<h3>我的博客</h3><p>自己平时知识的积累</p>")
+			enter(".wd:eq(4)","(166,206,185,0.8)","<h3>响应式布局</h3><p>博客页面的响应式布局</p>")
+			$(window).scroll(function() {
+			    var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+			if(scrollTop>$("header").innerHeight()){
+				function skill(abars,num){
+				$(abars).animate({width:num},1000)
+				$(abars).text(num)
+			};
+				skill(".bar:eq(0)","80%");
+			skill(".bar:eq(1)","70%");
+			skill(".bar:eq(2)","50%");
+			skill(".bar:eq(3)","70%");
+			}
+			})
+		</script>
+	</body>
+</html>

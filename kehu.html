@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>客户信息管理</title>
+		<link rel="stylesheet" href="js/bootstrap.min.css" />
+		<script src="js/vue.js"></script>
+		<style>
+			.top {
+				width: 100%;
+				height: 300px;
+				background-color: rgba(0, 0, 0, .4);
+				padding-top: 40px;
+			}
+			
+			table {
+				width: 500px;
+				height: 200px;
+				text-align: center;
+				margin: 20px auto;
+				background-color: white;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="top">
+			<table class=" table-bordered table-striped tab-pane">
+				<thead>
+					<tr>
+						<td colspan="2">
+							<h2 class="h2">个人信息录入</h2></td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<p>姓名：</p>
+						</td>
+						<td><input type="text" id="use" /></td>
+					</tr>
+					<tr>
+						<td>
+							<p>账号：</p>
+						</td>
+						<td><input type="text" id="num" /></td>
+					</tr>
+					<tr>
+						<td>
+							<p>密码：</p>
+						</td>
+						<td><input type="text" id="psd" /></td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="2">
+							<div class="btn  btn-default" id="sub">加入表单</div>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+		<div class="bottom">
+			<table style="width: 700px;" class="table-bordered table-striped">
+				<thead>
+					<tr>
+						<td colspan="4">
+							<h2>个人信息记录</h2></td>
+					</tr>
+					<tr>
+						<td>用户</td>
+						<td>账号</td>
+						<td>密码</td>
+						<td>操作</td>
+					</tr>
+				</thead>
+				<tbody id="tbody">
+
+					<tr>
+						<td>张三</td>
+						<td>12344</td>
+						<td>3222f</td>
+						<td><button class="btn-danger rem">删除信息</button></td>
+					</tr>
+					<tr>
+						<td>李四</td>
+						<td>123422344</td>
+						<td>3222ddjewidw f</td>
+						<td><button class="btn-danger rem">删除信息</button></td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="4"><button class="btn btn-danger" id="see">全部删除</button></td>
+					</tr>
+				</tfoot>
+
+			</table>
+		</div>
+		<script>
+			var rems = document.getElementsByClassName("rem")
+			see = document.getElementById("see")
+			sub = document.getElementById("sub")
+			use = document.getElementById("use")
+			num = document.getElementById("num")
+			psd = document.getElementById("psd")
+			tbody = document.getElementById("tbody");
+
+			sub.onclick = function() {
+				
+				an = use.value
+				am = num.value
+				ap = psd.value
+				if(an!=""&&am!=""&&ap!=""){
+				s = document.createElement("tr");
+				s.innerHTML = "<td>" + an + "</td><td>" + am + "</td><td>" + ap + "</td><td><button class=\"btn-danger rem\">删除信息</button></td>"
+				tbody.appendChild(s);
+				use.value="";
+				num.value="";
+				psd.value="";
+				}else{
+					alert("请输入正确的信息")
+				};
+				
+			}
+			//事件委托
+
+			tbody.onclick = function(ev) {
+				var ev = ev || window.event;
+				var target = ev.target || ev.srcElement;　
+				if(target.tagName == "BUTTON") {
+					s = target.parentNode.parentNode;
+					s.parentNode.removeChild(s);
+				}
+
+			};
+			see.onclick=function(){
+				tbody.innerHTML=""
+			}
+		</script>
+	</body>
+
+</html>
